@@ -11,7 +11,7 @@ import SwiftUI
 struct Pokemon_ProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            PokemonsView(viewModel: PokemonsViewModel())
         }
     }
 }
