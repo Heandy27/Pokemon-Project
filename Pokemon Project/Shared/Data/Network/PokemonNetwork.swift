@@ -1,13 +1,13 @@
 import Foundation
 
-protocol PokemonSingleNetworkProtocol {
-    func getSiglePokemon() async throws -> [PokemonSingleModelResponse]
+protocol PokemonNetworkProtocol {
+    func getPokemons() async throws -> [PokemonsModelResponse]
 }
 
-final class PokemonSingleNetwork: PokemonSingleNetworkProtocol {
-    func getSiglePokemon() async throws -> [PokemonSingleModelResponse] {
-        await withTaskGroup(of: PokemonSingleModelResponse?.self) { group in
-            var pokemonResult: [PokemonSingleModelResponse] = []
+final class PokemonNetwork: PokemonNetworkProtocol {
+    func getPokemons() async throws -> [PokemonsModelResponse] {
+        await withTaskGroup(of: PokemonsModelResponse?.self) { group in
+            var pokemonResult: [PokemonsModelResponse] = []
 
             for id in 1...151 {
                 group.addTask {
@@ -25,7 +25,7 @@ final class PokemonSingleNetwork: PokemonSingleNetworkProtocol {
         }
     }
     
-    private func fetchPokemon(id: Int) async -> PokemonSingleModelResponse? {
+    private func fetchPokemon(id: Int) async -> PokemonsModelResponse? {
         let urlString = "\(ConstantsApp.baseURL)\(Endpoints.singleCharacter.rawValue)/\(id)"
         
         guard let url = URL(string: urlString) else { return nil }
@@ -40,7 +40,7 @@ final class PokemonSingleNetwork: PokemonSingleNetworkProtocol {
                 return nil
             }
             
-            return try JSONDecoder().decode(PokemonSingleModelResponse.self, from: data)
+            return try JSONDecoder().decode(PokemonsModelResponse.self, from: data)
         } catch {
             return nil
         }

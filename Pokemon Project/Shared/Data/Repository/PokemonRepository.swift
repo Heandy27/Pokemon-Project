@@ -1,15 +1,16 @@
 import Foundation
 
-final class PokemonRepository: PokemonRepositoryProtocol {
+final class PokemonRepository: PokemonsRepositoryProtocol {
     
-    var network: PokemonsNetworkProtocol
     
-    init(network: PokemonsNetworkProtocol = PokemonsNetwork()) {
+    var network: PokemonNetworkProtocol
+    
+    init(network: PokemonNetworkProtocol = PokemonNetwork()) {
         self.network = network
     }
     
-    func getPokemons() async throws -> [Pokemon] {
-        return try await network.getPokemons()
+    func getPokemons() async throws -> [PokemonsModelResponse] {
+        try await network.getPokemons()
     }
     
 }

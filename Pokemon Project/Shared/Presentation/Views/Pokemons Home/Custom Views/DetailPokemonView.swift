@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct DetailPokemon: View {
+struct DetailPokemonView: View {
     
-    @State var viewModel = PokemonsViewModel()
-    var singlePokemon: PokemonSingleModelResponse
+    @State var viewModel = PokemonsHomeViewModel()
+    var singlePokemon: PokemonsModelResponse
     @State private var selectedTab: StatusDetail = .stats
     @Environment(\.dismiss) var dismiss
     
@@ -94,5 +94,5 @@ struct DetailPokemon: View {
 }
 
 #Preview {
-    DetailPokemon(singlePokemon: PokemonSingleModelResponse( abilities: [Abilities(ability: Abilities.Ability(name: "Electric")), Abilities(ability: Abilities.Ability(name: "Water power"))], moves: [Moves(move: Moves.Move(name: "Razor-wind"))], stats: [Stats(base_stat: 45, effort: 0, stat: Stats.Stat(name: "hp"))] , sprites: Sprites(front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"), types: [Types(type: Types.TypeResponse(name: "water"))], id: 1, name: "Bulbasaur", weight: 69, height: 7))
+    DetailPokemonView(singlePokemon: PokemonsModelResponse( abilities: [Abilities(ability: Abilities.Ability(name: "Electric")), Abilities(ability: Abilities.Ability(name: "Water power"))], moves: [Moves(move: Moves.Move(name: "Razor-wind"))], stats: [Stats(base_stat: 45, effort: 0, stat: Stats.Stat(name: "hp"))] , sprites: Sprites(front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"), types: [Types(type: Types.TypeResponse(name: "water"))], id: 1, name: "Bulbasaur", weight: 69, height: 7))
 }

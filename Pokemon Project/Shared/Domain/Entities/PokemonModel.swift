@@ -1,6 +1,6 @@
 import Foundation
 
-struct PokemonSingleModelResponse: Codable, Identifiable {
+struct PokemonsModelResponse: Codable, Identifiable {
     let abilities: [Abilities]
     let moves: [Moves]
     let stats: [Stats]

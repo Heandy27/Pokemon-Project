@@ -1,13 +1,13 @@
 import Foundation
 
-final class PokemonUseCase: PokemonUseCaseProtocol {
-    var repo: PokemonRepositoryProtocol
+final class PokemonUseCase: PokemonsUseCaseProtocol {
+    var repo: PokemonsRepositoryProtocol
     
-    init(repo:  PokemonRepositoryProtocol = PokemonRepository()) {
+    init(repo: PokemonsRepositoryProtocol = PokemonRepository()) {
         self.repo = repo
     }
     
-    func getPokemons() async throws -> [Pokemon] {
+    func getPokemons() async throws -> [PokemonsModelResponse] {
         return try await repo.getPokemons()
     }
     

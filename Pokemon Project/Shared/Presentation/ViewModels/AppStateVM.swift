@@ -4,9 +4,9 @@ import Foundation
 final class AppStateVM {
     var status: StatusModel = .loading
     @ObservationIgnored
-    var useCase: PokemonSingleUseCaseProtocol
+    var useCase: PokemonsUseCaseProtocol
     
-    init(useCase: PokemonSingleUseCaseProtocol = PokemonSingleUseCase()) {
+    init(useCase: PokemonsUseCaseProtocol = PokemonUseCase()) {
         self.useCase = useCase
         statusApp()
     }
@@ -18,7 +18,7 @@ final class AppStateVM {
         
         Task {
             do {
-                let pokemons = try await useCase.getSinglePokemon()
+                let pokemons = try await useCase.getPokemons()
                 
                 
                 if pokemons.isEmpty {

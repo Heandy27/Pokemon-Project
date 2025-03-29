@@ -3,14 +3,14 @@ import SwiftUICore
 import UIKit
 
 @Observable
-final class PokemonsViewModel {
-    var pokemonResult: [PokemonSingleModelResponse] = []
+final class PokemonsHomeViewModel {
+    var pokemonResult: [PokemonsModelResponse] = []
     var searchText: String = ""
     
     @ObservationIgnored
-    let useCase: PokemonSingleUseCaseProtocol
+    let useCase: PokemonsUseCaseProtocol
     
-    init(useCase: PokemonSingleUseCaseProtocol = PokemonSingleUseCase()) {
+    init(useCase: PokemonsUseCaseProtocol = PokemonUseCase()) {
         self.useCase = useCase
         
         Task {
@@ -20,12 +20,12 @@ final class PokemonsViewModel {
     
     @MainActor
     func getPokemons() async throws {
-        let data = try await useCase.getSinglePokemon()
+        let data = try await useCase.getPokemons()
         pokemonResult = data
     }
 
     
-    var filteredCharacter: [PokemonSingleModelResponse] {
+    var filteredCharacter: [PokemonsModelResponse] {
         if searchText.isEmpty {
             return pokemonResult
         } else {

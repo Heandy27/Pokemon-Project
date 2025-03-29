@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PokemonsHomeView: View {
     
-    @State var viewModel = PokemonsViewModel()
+    @State var viewModel = PokemonsHomeViewModel()
     let columns = [GridItem(.adaptive(minimum: 150))]
     
     var body: some View {
@@ -19,10 +19,10 @@ struct PokemonsHomeView: View {
                     ForEach(viewModel.filteredCharacter) { pokemon in
                         NavigationLink {
                        
-                                DetailPokemon(singlePokemon: pokemon)
+                                DetailPokemonView(singlePokemon: pokemon)
                              
                         } label: {
-                            PokemonSingleView(singlePokemon: pokemon)
+                            PokemonCellGridView(singlePokemon: pokemon)
                         }
                         .buttonStyle(.plain)
                     }
@@ -41,6 +41,6 @@ struct PokemonsHomeView: View {
 
 
 #Preview {
-    PokemonsHomeView(viewModel: PokemonsViewModel())
+    PokemonsHomeView(viewModel: PokemonsHomeViewModel())
         .preferredColorScheme(.light)
 }
