@@ -22,7 +22,7 @@ struct PokemonSingleView: View {
                 
                 HStack {
                     VStack {
-                        Text("Information:")
+                        Text("Type:  \(singlePokemon.types[0].type.name.capitalized)")
                             .font(.system(size: 12))
                             .font(.subheadline).bold()
                             .foregroundStyle(.white)
@@ -54,14 +54,18 @@ struct PokemonSingleView: View {
             }
             .frame(width: 160, height: 150)
             .padding()
+            
             .background(viewModel.getTypeColor(type: singlePokemon.types.first?.type.name ?? ""))
             .clipShape(.rect(cornerRadius: 10))
+            
           
         }
-        
+        .shadow(radius: 5)
     }
 }
 
+
+
 #Preview {
-    PokemonSingleView(singlePokemon: PokemonSingleModelResponse(abilities: [], moves: [], stats: [], sprites: Sprites(front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"), types: [Types(type: Types.TypeResponse(name: "water"))], id: 1, name: "Bulbasaur", weight: 69, height: 7))
+    PokemonSingleView(singlePokemon: PokemonSingleModelResponse( abilities: [Abilities(ability: Abilities.Ability(name: "Electric")), Abilities(ability: Abilities.Ability(name: "Water power"))], moves: [Moves(move: Moves.Move(name: "Razor-wind"))], stats: [Stats(base_stat: 45, effort: 0, stat: Stats.Stat(name: "hp"))] , sprites: Sprites(front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"), types: [Types(type: Types.TypeResponse(name: "water"))], id: 1, name: "Bulbasaur", weight: 69, height: 7))
 }

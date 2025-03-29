@@ -6,6 +6,7 @@ import UIKit
 final class PokemonsViewModel {
     var pokemonResult: [PokemonSingleModelResponse] = []
     var searchText: String = ""
+    
     @ObservationIgnored
     let useCase: PokemonSingleUseCaseProtocol
     
@@ -22,7 +23,7 @@ final class PokemonsViewModel {
         let data = try await useCase.getSinglePokemon()
         pokemonResult = data
     }
-    
+
     
     var filteredCharacter: [PokemonSingleModelResponse] {
         if searchText.isEmpty {

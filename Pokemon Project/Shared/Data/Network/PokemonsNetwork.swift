@@ -36,4 +36,7 @@ final class PokemonsNetwork: PokemonsNetworkProtocol {
         
         return characters
     }
+    
+  
+    
 }

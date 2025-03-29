@@ -12,19 +12,23 @@ struct PokemonSingleModelResponse: Codable, Identifiable {
     let height: Int
 }
 
+// Abilities
+
 struct Abilities: Codable {
     let ability: Ability
-    
-    
     
     struct Ability: Codable {
         let name: String
     }
 }
 
+
+
 struct Sprites: Codable {
     let front_default: String
 }
+
+// Moves
 
 struct Moves: Codable {
     let move: Move
@@ -33,6 +37,10 @@ struct Moves: Codable {
         let name: String
     }
 }
+
+
+
+// Stats
 
 struct Stats: Codable {
     let base_stat: Int
@@ -44,11 +52,17 @@ struct Stats: Codable {
     }
 }
 
+
+
+
+// Types
+
 struct Types: Codable {
     let type: TypeResponse
-    
     
     struct TypeResponse: Codable {
         let name: String
     }
+
 }
+

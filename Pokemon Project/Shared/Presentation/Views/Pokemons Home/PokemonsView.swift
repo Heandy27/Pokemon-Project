@@ -18,21 +18,24 @@ struct PokemonsView: View {
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(viewModel.filteredCharacter) { pokemon in
                         NavigationLink {
-                            Text(pokemon.name)
+                       
+                                DetailPokemon(singlePokemon: pokemon)
+                             
                         } label: {
                             PokemonSingleView(singlePokemon: pokemon)
                         }
                         .buttonStyle(.plain)
                     }
                 }
+                
             }
+            
             .searchable(text: $viewModel.searchText, prompt: "Search your pokemon")
             .padding(.horizontal, 4)
             .navigationTitle("Pokemons")
             .ignoresSafeArea(edges: .bottom)
+            
         }
-     
-       
     }
 }
 
