@@ -15,7 +15,7 @@ struct MovesView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 ForEach(singlePokemon.moves, id: \.move.name) { move in
-                    Text(move.move.name.capitalized)
+                    Text(singlePokemon.moves.map {$0.move.name}.joined(separator: " - "))
                         .font(.callout)
                         .frame(maxWidth: .infinity,alignment: .leading)
                         .padding(5)

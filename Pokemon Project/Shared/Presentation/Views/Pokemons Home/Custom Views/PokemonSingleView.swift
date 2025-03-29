@@ -17,7 +17,7 @@ struct PokemonSingleView: View {
             
             VStack(alignment: .center) {
                 Text(singlePokemon.name.capitalized)
-                    .font(.title)
+                    .font(.headline)
                     .foregroundStyle(.white)
                 
                 HStack {

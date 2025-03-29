@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PokemonsView: View {
+struct PokemonsHomeView: View {
     
     @State var viewModel = PokemonsViewModel()
     let columns = [GridItem(.adaptive(minimum: 150))]
@@ -41,5 +41,6 @@ struct PokemonsView: View {
 
 
 #Preview {
-    PokemonsView(viewModel: PokemonsViewModel())
+    PokemonsHomeView(viewModel: PokemonsViewModel())
+        .preferredColorScheme(.light)
 }
