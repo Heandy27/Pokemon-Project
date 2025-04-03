@@ -33,21 +33,21 @@ final class PokemonsHomeViewModel {
         }
     }
     
-    func getTypeColor(type: String) -> Color {
+    func getTypeColor(type: String) -> LinearGradient {
         switch type {
-        case "fire":return .red
-        case "poison":return .green
-        case "water":return .blue
-        case "electric":return .yellow
-        case "psychic":return .purple
-        case "normal":return .orange
-        case "ground":return .gray
-        case "flying":return .teal
-        case "fairy":return .pink
-        case "grass": return .green
+        case "fire":return LinearGradient(gradient: Gradient(colors: [.red, .red.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottomTrailing)
+        case "poison":return LinearGradient(gradient: Gradient(colors: [.green, .green.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottom)
+        case "water":return LinearGradient(gradient: Gradient(colors: [.blue, .blue.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottom)
+        case "electric":return LinearGradient(gradient: Gradient(colors: [.yellow, .yellow.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottom)
+        case "psychic":return LinearGradient(gradient: Gradient(colors: [.purple, .purple.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottom)
+        case "normal":return LinearGradient(gradient: Gradient(colors: [.orange, .orange.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottom)
+        case "ground":return LinearGradient(gradient: Gradient(colors: [.gray, .gray.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottom)
+        case "flying":return LinearGradient(gradient: Gradient(colors: [.teal, .teal.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottom)
+        case "fairy":return LinearGradient(gradient: Gradient(colors: [.pink, .pink.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottom)
+        case "grass": return LinearGradient(gradient: Gradient(colors: [.green, .green.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottom)
             
         default:
-            return .indigo
+            return LinearGradient(gradient: Gradient(colors: [.indigo, .indigo.opacity(0.5)]), startPoint: UnitPoint(x: 0.5, y: 0.2), endPoint: .bottom)
         }
     }
     

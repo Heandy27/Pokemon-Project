@@ -24,7 +24,7 @@ struct StatsView: View {
                         Text("\(pokemon.base_stat)")
                             .font(.callout)
                         
-                        Slider(value: $sliderValue, in: 0...100, step: 1)
+                        Slider(value: $sliderValue, in: 0...150, step: 1)
                             .tint( pokemon.base_stat > 50 ? .green : .red)
                             .disabled(true)
                             .onAppear {

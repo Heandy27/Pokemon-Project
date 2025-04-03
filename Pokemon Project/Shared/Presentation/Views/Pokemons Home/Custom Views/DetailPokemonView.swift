@@ -17,8 +17,9 @@ struct DetailPokemonView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(viewModel.getTypeColor(type: singlePokemon.types.first?.type.name ?? ""))
-                    .ignoresSafeArea()
+                Color.clear
+                    .background(viewModel.getTypeColor(type: singlePokemon.types.first?.type.name ?? "")).ignoresSafeArea()
+                        
                 VStack(spacing: 0) {
                     Text(singlePokemon.name.capitalized)
                         .font(.largeTitle).bold()
