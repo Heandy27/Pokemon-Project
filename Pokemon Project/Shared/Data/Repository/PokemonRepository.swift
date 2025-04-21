@@ -14,3 +14,19 @@ final class PokemonRepository: PokemonsRepositoryProtocol {
     }
     
 }
+
+// MARK: MOCK
+
+final class PokemonRepositoryMock: PokemonsRepositoryProtocol {
+   
+    var network: PokemonNetworkProtocol
+    
+    init(network: PokemonNetworkProtocol = PokemonNetworkMock()) {
+        self.network = network
+    }
+    
+    func getPokemons() async throws -> [PokemonsModelResponse] {
+        return try await network.getPokemons()
+    }
+    
+}

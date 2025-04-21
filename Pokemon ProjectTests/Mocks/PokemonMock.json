@@ -1,0 +1,61 @@
+{
+  "abilities": [
+    {
+      "ability": {
+        "name": "overgrow"
+      }
+    },
+    {
+      "ability": {
+        "name": "chlorophyll"
+      }
+    }
+  ],
+  "moves": [
+    {
+      "move": {
+        "name": "tackle"
+      }
+    },
+    {
+      "move": {
+        "name": "growl"
+      }
+    }
+  ],
+  "stats": [
+    {
+      "base_stat": 45,
+      "effort": 0,
+      "stat": {
+        "name": "hp"
+      }
+    },
+    {
+      "base_stat": 49,
+      "effort": 0,
+      "stat": {
+        "name": "attack"
+      }
+    }
+  ],
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+  },
+  "types": [
+    {
+      "type": {
+        "name": "grass"
+      }
+    },
+    {
+      "type": {
+        "name": "poison"
+      }
+    }
+  ],
+  "id": 1,
+  "name": "bulbasaur",
+  "weight": 69,
+  "height": 7
+}

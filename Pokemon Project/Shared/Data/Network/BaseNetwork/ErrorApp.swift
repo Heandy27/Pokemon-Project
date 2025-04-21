@@ -34,3 +34,27 @@ enum ErrorApp: Error, CustomStringConvertible {
     }   
     
 }
+
+
+extension ErrorApp: Equatable {
+    static func == (lhs: ErrorApp, rhs: ErrorApp) -> Bool {
+        switch (lhs, rhs) {
+        case (.requestWasNil, .requestWasNil),
+            (.noDataReceived, .noDataReceived),
+            (.errorParsingData, .errorParsingData),
+            (.badUrl, .badUrl):
+            return true
+        case let (.errorFromApi(code1), .errorFromApi(code2)):
+            return code1 == code2
+        case let (.characterNotFound(id1), .characterNotFound(id2)):
+            return id1 == id2
+        case let (.errorFromServer(err1), .errorFromServer(err2)):
+            // Comparar códigos de error, si quieres algo aproximado
+            return (err1 as NSError).code == (err2 as NSError).code
+        default:
+            return false
+        }
+    }
+    
+    
+}
