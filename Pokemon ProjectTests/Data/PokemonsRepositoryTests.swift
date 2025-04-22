@@ -20,12 +20,12 @@ final class PokemonsRepositoryTests: XCTestCase {
         repository = nil
     }
 
-    func testExample() async throws {
-        let numberExpected = 2
+    func testRepository_WhenFetchedPokemons_ReturnsCorrectCount() async throws {
+        let expectedNumberOfPokemons = 2
         
         let pokemon = try await repository.getPokemons()
         
-        XCTAssertEqual(pokemon.count, numberExpected)
+        XCTAssertEqual(pokemon.count, expectedNumberOfPokemons)
     }
 
 }

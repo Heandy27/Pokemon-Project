@@ -21,10 +21,10 @@ final class PokemonsUseCaseTests: XCTestCase {
         useCase = nil
     }
     
-    func testDePrueba() async throws {
-        let expectedNumber = 2
+    func testUseCase_WhenFetchedPokemons_ReturnsCorrectCount() async throws {
+        let expectedNumberOfPokemons = 2
         let pokemon = try await useCase.getPokemons()
-        XCTAssertEqual(pokemon.count, expectedNumber)
+        XCTAssertEqual(pokemon.count, expectedNumberOfPokemons)
     }
 
 

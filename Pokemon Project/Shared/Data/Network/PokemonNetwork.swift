@@ -33,7 +33,7 @@ final class PokemonNetwork: PokemonNetworkProtocol {
         }
     }
     
-    private func fetchPokemon(id: Int) async throws -> PokemonsModelResponse {
+     func fetchPokemon(id: Int) async throws -> PokemonsModelResponse {
         let urlString = "\(ConstantsApp.baseURL)\(Endpoints.singleCharacter.rawValue)/\(id)"
         
         guard let url = URL(string: urlString) else {
@@ -57,6 +57,8 @@ final class PokemonNetwork: PokemonNetworkProtocol {
             return try JSONDecoder().decode(PokemonsModelResponse.self, from: data)
         } catch is DecodingError {
             throw ErrorApp.errorParsingData
+        } catch let error as ErrorApp {
+            throw error // <-- Si ya es ErrorApp, lo relanzamos sin envolverlo
         } catch {
             throw ErrorApp.errorFromServer(error: error)
         }

@@ -21,11 +21,19 @@ final class PokemonsHomeViewModelTests: XCTestCase {
 
     }
 
-    func testExample() async throws {
+    func testGetPokemons_WhenSuccessfulResponse_ReturnsCorrectPokemonData() async throws {
         try await viewModel.getPokemons()
         
         XCTAssertEqual(viewModel.pokemonResult.count, 2)
         XCTAssertEqual(viewModel.pokemonResult[0].name, "Bulbasaur")
+        XCTAssertEqual(viewModel.pokemonResult[0].id, 1)
+        XCTAssertEqual(viewModel.pokemonResult[0].height, 7)
+        XCTAssertEqual(viewModel.pokemonResult[0].weight, 69)
+        XCTAssertEqual(viewModel.pokemonResult[0].abilities.count, 2)
+        XCTAssertEqual(viewModel.pokemonResult[0].moves.count, 1)
+        XCTAssertEqual(viewModel.pokemonResult[0].stats.count, 1)
+        XCTAssertEqual(viewModel.pokemonResult[0].sprites.front_default, "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")
+        XCTAssertEqual(viewModel.pokemonResult[0].stats.count, 1)
     }
     
     func testFilteredCharacter_ShouldReturnFilteredListBasedOnSearchText()  async throws {
